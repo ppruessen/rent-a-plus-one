@@ -1,4 +1,4 @@
-.banner {
+.home-banner {
   background-image: asset-url("home-banner.jpg");
   background-size: cover;
   height: 650px;
@@ -6,7 +6,7 @@
   padding: 170px 0;
 }
 
-.banner h2 {
+.home-banner h2 {
   margin: 0;
   color: $dark-blue;
   text-shadow: 2px 2px 5px rgba(240, 240, 240, 0.8);
@@ -14,7 +14,7 @@
   font-weight: bold;
 }
 
-.banner p {
+.home-banner p {
   font-size: 20px;
   color: white;
   opacity: .7;
