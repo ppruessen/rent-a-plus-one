@@ -4,9 +4,9 @@
 
   <h2>Event Cards</h2>
 
-  <div class="row">
-      <% @events.each do |event| %>
+  <div class="event-cards">
+    <% @events.each do |event| %>
         <%= render "shared/event_card", event: event %>
-      <% end %>
+    <% end %>
   </div>
 </div>

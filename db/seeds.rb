@@ -38,7 +38,7 @@ puts "............"
         user_id: user.id
       }
     )
-    puts "Created a #{event.category} event hosted by #{user.first_name,}"
+    puts "Created a #{event.category} event hosted by #{user.first_name}"
   end
 end
 
