@@ -1,4 +1,12 @@
-<%= render "shared/home-banner" %>
+<%= render "shared/home_banner" %>
 
-<h1>Pages#home</h1>
-<p>Find me in app/views/pages/home.html.erb</p>
+<div class="container mt-5">
+
+  <h2>Event Cards</h2>
+
+  <div class="row">
+      <% @events.each do |event| %>
+        <%= render "shared/event_card", event: event %>
+      <% end %>
+  </div>
+</div>
