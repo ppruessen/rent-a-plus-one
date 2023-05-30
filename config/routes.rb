@@ -8,6 +8,7 @@ Rails.application.routes.draw do
   resources :events do
     resources :bookings
   end
+  
   get "/dashboard", to: "pages#dashboard"
   # deletion goes outside the nested section
 end
