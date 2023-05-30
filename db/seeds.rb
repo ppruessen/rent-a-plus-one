@@ -29,6 +29,7 @@ puts "............"
   rand(0..3).times do
     event = Event.create!(
       {
+        title: Faker::BossaNova.song,
         category: categories.sample,
         location: Faker::Mountain.name,
         date: Faker::Date.between(from: '2023-05-23', to: '2023-06-24'),
@@ -37,7 +38,7 @@ puts "............"
         user_id: user.id
       }
     )
-    puts "Created a #{event.category} event"
+    puts "Created a #{event.category} event hosted by #{user.first_name,}"
   end
 end
 
