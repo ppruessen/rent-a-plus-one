@@ -5,4 +5,9 @@ Rails.application.routes.draw do
 
   # Defines the root path route ("/")
   # root "articles#index"
+  resources :events do
+    resources :bookings
+  end
+  get "/dashboard", to: "pages#dashboard"
+  # deletion goes outside the nested section
 end
