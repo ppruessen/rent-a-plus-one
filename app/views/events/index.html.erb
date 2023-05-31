@@ -1,7 +1,7 @@
 
 <div class="container">
   <div class ="row">
-    <div id="category-bar" class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4));">
+    <div id="category-banner" class="banner sticky-bar" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4));">
       <div class="container-fluid w-100">
         <div id="category-carousel" class="carousel slide d-lg-flex" data-bs-ride="carousel">
           <div class="carousel-inner">
@@ -40,18 +40,9 @@
       </div>
     </div>
   </div>
-  <div class="row justify-content-center">
+  <div class="event-cards">
     <% @events.each do |event| %>
-      <div class="event-card">
-        <img src="https://placehold.co/600x400" alt="Event Image 1" class="event-image">
-        <div class="event-details">
-          <h5 class="event-name"><%= event.title %></h5>
-          <p class="event-location"><strong>Location:</strong> <%= event.location %></p>
-          <p class="event-date"><strong>Date:</strong> <%= event.date.strftime('%m/%d/%Y') %></p>
-          <p class="event-category"><strong>Category:</strong> <%= event.category %></p>
-          <p class="text-center pt-3rail"><%= link_to "View Event", new_user_registration_path, class: "btn btn-primary" %></p>
-        </div>
-      </div>
+        <%= render "shared/event_card", event: event %>
     <% end %>
   </div>
 </div>
