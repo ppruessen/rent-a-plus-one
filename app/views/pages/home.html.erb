@@ -2,11 +2,14 @@
 
 <div class="container mt-5">
 
-  <h2>Event Cards</h2>
+  <h2>Top events in Berlin</h2>
 
   <div class="event-cards">
     <% @events.each do |event| %>
         <%= render "shared/event_card", event: event %>
     <% end %>
+  </div>
+  <div class="mt-5 mb-5 text-center">
+    <%= link_to "View more events!", events_path, class: "btn btn-primary" %>
   </div>
 </div>
