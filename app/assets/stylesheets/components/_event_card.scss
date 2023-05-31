@@ -1,0 +1,35 @@
+.event-cards {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+.event-card {
+  background-color: #FFFFFF;
+  width: 300px;
+  margin: 0px 10px 0px 0px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  overflow: hidden;
+}
+
+.event-image {
+  width: 100%;
+  height: auto;
+  display: block;
+  margin-top: 0;
+}
+
+.event-details {
+  padding: 10px;
+}
+
+.event-name {
+  margin-top: 0;
+}
+
+.event-location,
+.event-date,
+.event-category {
+  margin: 5px 0;
+}
