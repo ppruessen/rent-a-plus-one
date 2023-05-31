@@ -1,7 +1,11 @@
-<div class="details">
+<div class="details col-10">
+  <div class="title d-block">
     <h4>ADD EVENT TITLE HEREY</h4>
+  </div>
     <p><%= @event.location %></p>
-    <p><%= @event.date %></p>
-    <p><%= @event.description %></p>
-    <p><%= @event.compensation %></p>
+    <p><%= @event.date.strftime('%m/%d/%Y') %></p>
+    <div class="description">
+      <p><%= @event.description %></p>
+      <p><strong>€<%= @event.compensation %></strong></p>
+      </div>
   </div>
