@@ -1,5 +1,5 @@
  <div class="event-banner d-flex justify-content-between mt-3 mx-5">
-    <h2>ADD EVENT TITLE HEREY</h2>
+    <h2><%= @event.title %></h2>
     <%= link_to "Apply for this event", dashboard_path, data: { turbo_method: "get", turbo_confirm: "Are you sure?" }, class: "btn btn-warning" %>
     <%# link_to "Apply for this event", event_create_booking_path(event), data: { turbo_method: "post", turbo_confirm: "Are you sure?" }, class: "btn btn-warning" %>
   </div>
