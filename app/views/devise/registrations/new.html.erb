@@ -43,7 +43,9 @@
                           required: true,
                           input_html: { autocomplete: "new-password" } %>
             </div>
-
+            <div class="mb-3 form-inputs">
+              <%= f.input :photo, as: :file %>
+            </div>
             <div class="text-center form-actions">
               <%= f.button :submit, "Sign up", class: "btn btn-warning btn-lg" %>
             </div>
