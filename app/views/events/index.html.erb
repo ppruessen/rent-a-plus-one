@@ -1,58 +1,55 @@
+
 <div class="container">
-
-
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top mt-5 mb-5 height">
-  <div class="container-fluid w-100">
-    <div id="category-carousel" class="carousel slide d-lg-flex" data-bs-ride="carousel">
-      <div class="carousel-inner">
-        <% categories = @events.pluck(:category).uniq %>
-        <% categories.each_slice(4).with_index do |categories_slice, index| %>
-          <div class="carousel-item <%= index.zero? ? 'active' : '' %>">
-            <div class="d-flex justify-content-center">
-              <div class="d-flex flex-wrap justify-content-center align-items-center">
-                <% categories_slice.each do |category| %>
-                  <a class="nav-link category-image" href="#">
-                    <button class="btn btn-transparent">
-                      <div class="d-flex flex-column align-items-center">
-                        <img src="<%= image_path("#{category}.jpg") %>" alt="<%= category %>" class="img-fluid rounded-circle" style="width: 120px; height: 120px; object-fit: cover;">
-                        <span class="category-name text-white mt-2"><%= category %></span>
-                      </div>
-                    </button>
-                  </a>
-                <% end %>
+  <div class ="row">
+    <div id="category-bar" class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4));">
+      <div class="container-fluid w-100">
+        <div id="category-carousel" class="carousel slide d-lg-flex" data-bs-ride="carousel">
+          <div class="carousel-inner">
+            <% categories = @events.pluck(:category).uniq %>
+            <% categories.each_slice(4).with_index do |categories_slice, index| %>
+              <div class="carousel-item <%= index.zero? ? 'active' : '' %>">
+                <div class="d-flex justify-content-center">
+                  <div class="d-flex flex-wrap justify-content-center align-items-center">
+                    <% categories_slice.each do |category| %>
+                      <a class="nav-link category-image" href="#">
+                        <button class="btn btn-transparent">
+                          <div class="d-flex flex-column align-items-center">
+                            <img src="<%= image_path("#{category}.jpg") %>" alt="<%= category %>" class="img-fluid rounded-circle" style="width: 120px; height: 120px; object-fit: cover;">
+                            <span class="category-name text-white mt-2"><%= category %></span>
+                          </div>
+                        </button>
+                      </a>
+                    <% end %>
+                  </div>
+                </div>
               </div>
-            </div>
+            <% end %>
           </div>
-        <% end %>
+
+          <button class="carousel-control-prev" type="button" data-bs-target="#category-carousel" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+          </button>
+
+          <button class="carousel-control-next" type="button" data-bs-target="#category-carousel" data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+          </button>
+
+        </div>
       </div>
-
-      <button class="carousel-control-prev" type="button" data-bs-target="#category-carousel" data-bs-slide="prev">
-        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-        <span class="visually-hidden">Previous</span>
-      </button>
-
-      <button class="carousel-control-next" type="button" data-bs-target="#category-carousel" data-bs-slide="next">
-        <span class="carousel-control-next-icon" aria-hidden="true"></span>
-        <span class="visually-hidden">Next</span>
-      </button>
-
     </div>
   </div>
-</nav>
-
-
-
-  <div class="row">
+  <div class="row justify-content-center">
     <% @events.each do |event| %>
-      <div class="col-lg-4 col-md-6">
-        <div class="card mb-4">
-          <div class="card-body">
-            <h5 class="card-title"><%= event.title %></h5>
-            <p class="card-text"><%= event.description %></p>
-            <p class="card-text"><strong>Date:</strong> <%= event.date %></p>
-            <p class="card-text"><strong>Location:</strong> <%= event.location %></p>
-            <a href="<%= event_path(event) %>" class="btn btn-primary">View Details</a>
-          </div>
+      <div class="event-card">
+        <img src="https://placehold.co/600x400" alt="Event Image 1" class="event-image">
+        <div class="event-details">
+          <h5 class="event-name"><%= event.title %></h5>
+          <p class="event-location"><strong>Location:</strong> <%= event.location %></p>
+          <p class="event-date"><strong>Date:</strong> <%= event.date.strftime('%m/%d/%Y') %></p>
+          <p class="event-category"><strong>Category:</strong> <%= event.category %></p>
+          <p class="text-center pt-3rail"><%= link_to "View Event", new_user_registration_path, class: "btn btn-primary" %></p>
         </div>
       </div>
     <% end %>
