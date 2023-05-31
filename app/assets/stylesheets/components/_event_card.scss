@@ -2,12 +2,13 @@
   display: flex;
   justify-content: space-between;
   flex-wrap: wrap;
+  margin-top: 25px;
 }
 
 .event-card {
   background-color: #FFFFFF;
   width: 300px;
-  margin: 0px 10px 0px 0px;
+  margin: 0px 10px 15px 0px;
   border: 1px solid #ccc;
   border-radius: 5px;
   overflow: hidden;
