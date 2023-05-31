@@ -5,6 +5,6 @@
     <p class="event-location"><strong>Location:</strong> <%= event.location %></p>
     <p class="event-date"><strong>Date:</strong> <%= event.date.strftime('%m/%d/%Y') %></p>
     <p class="event-category"><strong>Category:</strong> <%= event.category %></p>
-    <p class="text-center mt-3"><%= link_to "View Event", new_user_registration_path, class: "btn btn-primary" %></p>
+    <p class="text-center mt-3"><%= link_to "View Event", event_path(event), class: "btn btn-primary" %></p>
   </div>
 </div>
