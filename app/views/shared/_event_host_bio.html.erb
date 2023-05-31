@@ -1,7 +1,7 @@
-<div class="event-host-bio d-flex col-8">
-  <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg" />
+<div class="event-host-bio d-flex col-10">
+  <img class="d-flex" src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg" />
   <div class="event-host-bio-info">
-    <h2>ADD USERNAME HEREY</h2>
-    <p></p>
+    <h2><%= @event.user.first_name %> <%= @event.user.last_name %></h2>
+    <p> <%= @event.user.bio %> </p>
   </div>
 </div>
