@@ -2,10 +2,12 @@
   <div class="container-fluid">
 
     <div class ="left-side">
-      <a class="navbar-brand d-flex gap-2 align-items-center" href="#">
+    <%= link_to root_path do %>
+    <div class="navbar-brand d-flex gap-2 align-items-center">
         <h3 class="m-0">Find a </h3>
-        <%= image_tag "plus-one-icon.png", alt: "PlusOne", width: 200 %>
-  </a>
+          <%= image_tag "plus-one-icon.png", alt: "PlusOne", width: 200 %>
+    </div>
+    <% end %>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
@@ -13,12 +15,16 @@
 
     <div class="collapse navbar-collapse d-flex gap-2" id="navbarSupportedContent">
 
-        <button class="btn btn-warning"> Sign up</button>
-        <button class="btn btn-primary"> Log in</button>
+        <%= link_to "Sign up", new_user_registration_path, class: "btn btn-warning" %>
+        <%= link_to "Log in", new_user_session_path, class: "btn btn-warning" %>
 
       <ul class="navbar-nav me-auto">
           <li class="nav-item dropdown">
-            <img class="avatar dropdown-toggle" id="navbarDropdown" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" src="https://kitt.lewagon.com/placeholder/users/ssaunier" />
+
+            <% if user_signed_in? && user.photo.attached? %>
+              <%= cl_image_tag @user.photo.key, height: 300, width: 400, crop: :fill %>
+            <% end %>
+
             <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
               <a class="dropdown-item" href="#">Create Event</a>
               <a class="dropdown-item" href="#">Messages</a>
