@@ -3,4 +3,8 @@ class PagesController < ApplicationController
   def home
     @events = Event.all.sample(4)
   end
+
+  def dashboard
+    
+  end
 end
