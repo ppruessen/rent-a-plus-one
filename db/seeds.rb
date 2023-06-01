@@ -40,7 +40,7 @@ puts "............"
     )
   end
   puts "Created #{user.first_name}"
-  rand(0..3).times do
+  rand(1..10).times do
     event = Event.create!(
       {
         title: Faker::BossaNova.song,
@@ -56,7 +56,7 @@ puts "............"
   end
 end
 
-25.times do
+100.times do
   booking = Booking.create!(
     {
       user_id: User.ids.sample,
