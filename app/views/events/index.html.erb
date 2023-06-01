@@ -1,5 +1,5 @@
 <div class="container">
-  <div class="container">
+  <div class="category-container">
     <div class="carousel">
       <% categories = Event.pluck(:category).uniq %>
       <% events = @events.to_json %>
@@ -17,11 +17,8 @@
     </div>
   </div>
 
-
-
-
   <div class="cards-container" style="margin-top: 5%;">
-    <div class="event-cards" id="each-item">
+    <div class="event-cards category-event-cards" id="each-item">
       <% @events.each do |event| %>
         <%# <% if event.category == category %>
         <%= render "shared/event_card", event: event %>
@@ -30,4 +27,3 @@
     </div>
   </div>
 </div>
-
