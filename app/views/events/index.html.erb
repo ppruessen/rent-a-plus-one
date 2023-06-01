@@ -1,29 +1,34 @@
 
-<div class="container">
-  <div class="carousel">
-    <% categories = @events.pluck(:category).uniq %>
-    <% events = @events.to_json %>
-    <% categories.each do |category| %>
-      <% category_with_hyphen = category.gsub(" ", "-") %>
-      <div id="<%= category_with_hyphen %>" class="item" onclick="filterEvents('<%= category %>','<%= events %>')">
-        <div>
-          <i class="fa fa-glass"></i>
+  <div class="container">
+    <div class="carousel">
+      <% categories = Event.pluck(:category).uniq %>
+      <% events = @events.to_json %>
+      <% categories.each do |category| %>
+      <%= link_to events_path(query: category) do%>
+        <% category_with_hyphen = category.gsub(" ", "-") %>
+        <div id="<%= category_with_hyphen %>" class="item" onclick="filterEvents('<%= category %>','<%= events %>')">
+          <div>
+            <i class="fa fa-glass"></i>
+          </div>
+          <h1><%= category %></h1>
         </div>
-        <h1><%= category %></h1>
-      </div>
-    <% end %>
+      <% end %>
+      <% end %>
+    </div>
   </div>
-</div>
 
-<div class="cards-container" style="margin-top: 5%;">
-  <div class="event-cards" id="each-item">
-    <% @events.each do |event| %>
-      <%# <% if event.category == category %>
-      <%= render "shared/event_card", event: event %>
-      <%# <% end %>
-    <% end %>
+
+
+
+  <div class="cards-container" style="margin-top: 5%;">
+    <div class="event-cards" id="each-item">
+      <% @events.each do |event| %>
+        <%# <% if event.category == category %>
+        <%= render "shared/event_card", event: event %>
+        <%# <% end %>
+      <% end %>
+    </div>
   </div>
-</div>
 
 
 
