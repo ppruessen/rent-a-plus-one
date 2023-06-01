@@ -5,7 +5,8 @@
 <hr>
 
 <div class="container">
-  <h2>My +1 Events</h2>
+  <%# <h2>My +1 Events</h2> %>
+  <h2>I will be a +1 in the following events:</h2>
 
   <div class="row">
     <div class="col">
@@ -13,7 +14,9 @@
       <div class="event-cards">
         <% if @approved_events %>
           <% @applied_events.each do |event| %>
+            <div class="border border-warning">
               <%= render "shared/event_card", event: event %>
+            </div>
           <% end %>
         <% end %>
       </div>
@@ -24,7 +27,7 @@
       <div class="event-cards">
         <% if @approved_events %>
           <% @approved_events.each do |event| %>
-              <%= render "shared/event_card", event: event %>
+              <%= render "shared/dashboard_attending_card", event: event %>
           <% end %>
         <% end %>
       </div>
@@ -40,11 +43,14 @@
 
   <div class="row">
     <div class="col">
-      <h4>Waiting For Approval</h4>
+      <%# <h4>Waiting For Approval</h4> %>
+      <h4>To do: Review Applications</h4>
       <div class="event-cards">
         <% if @my_pending_events %>
           <% @my_pending_events.each do |booking| %>
+            <div class="border border-danger">
               <%= render "shared/event_card", event: booking.event %>
+            </div>
           <% end %>
         <% end %>
       </div>

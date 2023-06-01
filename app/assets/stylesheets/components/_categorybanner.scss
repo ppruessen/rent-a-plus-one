@@ -30,13 +30,15 @@ h1{
   border-top: 2px solid rgba(0, 0, 0, 0.1);
   border-bottom: 2px solid rgba(0, 0, 0, 0.1);
   position: sticky;
+  background-color: pink;
+  border-radius: 100px;
 }
 .category-event-cards {
   margin-top:-3%;
 }
 .item {
     display: inline-block;
-    width:195px ;
+    width:185px ;
     margin: 0 10px;
     height: 100%;
     background: rgba(0, 0, 0, 0.05) no-repeat center center;
@@ -59,7 +61,7 @@ h1{
   color: white;
   text-align: center;
   width: 100%;
-  font-size: 1.5em;
+  font-size: 1.4em;
 }
 #Birthday-Party{
   background-image: url(https://images.unsplash.com/photo-1575426158929-59962325660a?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60);

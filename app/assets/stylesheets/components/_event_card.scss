@@ -34,3 +34,11 @@
 .event-category {
   margin: 5px 0;
 }
+
+.event-card.approved {
+  background-color: lightgreen;
+}
+
+.event-card.pending{
+  background-color: orange;
+}
