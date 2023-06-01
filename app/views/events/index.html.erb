@@ -1,4 +1,4 @@
-
+<div class="container">
   <div class="container">
     <div class="carousel">
       <% categories = Event.pluck(:category).uniq %>
@@ -29,18 +29,5 @@
       <% end %>
     </div>
   </div>
+</div>
 
-
-
-<script>
-  let eachItem = document.querySelector("#each-item")
-
-  function filterEvents(category, allevents) {
-     let events = JSON.parse(allevents);
-    events.forEach(event => {
-      if(event.category == category){
-        console.log(event)
-      }
-    });
-  }
-</script>
