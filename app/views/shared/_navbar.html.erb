@@ -2,12 +2,22 @@
   <div class="container-fluid">
 
     <div class ="left-side">
-    <%= link_to root_path do %>
-    <div class="navbar-brand d-flex gap-2 align-items-center">
-        <h3 class="m-0">Find a </h3>
-          <%= image_tag "plus-one-icon.png", alt: "PlusOne", width: 200 %>
-    </div>
-    <% end %>
+      <% if user_signed_in? %>
+        <%= link_to events_path do %>
+          <div class="navbar-brand d-flex gap-2 align-items-center">
+              <h3 class="m-0">Find a </h3>
+                <%= image_tag "plus-one-icon.png", alt: "PlusOne", width: 200 %>
+          </div>
+        <% end %>
+      <% else %>
+        <%= link_to root_path do %>
+          <div class="navbar-brand d-flex gap-2 align-items-center">
+            <h3 class="m-0">Find a </h3>
+              <%= image_tag "plus-one-icon.png", alt: "PlusOne", width: 200 %>
+          </div>
+        <% end %>
+      <% end %>
+
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
