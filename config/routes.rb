@@ -6,10 +6,10 @@ Rails.application.routes.draw do
   # Defines the root path route ("/")
   # root "articles#index"
   resources :events do
-    resources :bookings, except: [:create]
-    post "/bookings", to: "bookings#create", as: 'create_booking'
+    resources :bookings, only: [:create]
   end
 
   get "/dashboard", to: "pages#dashboard"
   # deletion goes outside the nested section
+  resources :bookings, only: [:update]
 end

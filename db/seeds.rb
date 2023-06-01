@@ -13,18 +13,32 @@ categories = ['Wedding', 'Funeral', 'Graduation', 'Birthday Party', 'Family Gath
 puts "Creating 10 Users and some events and some bookings"
 puts "............"
 
-10.times do
-  first_name = Faker::Name.first_name
-  user = User.create!(
-    {
-      email: Faker::Internet.email(name: first_name),
-      first_name: first_name,
-      last_name: Faker::Name.last_name,
-      user_name: Faker::Internet.user,
-      bio: Faker::Hipster.paragraphs,
-      password: "123456"
-    }
-  )
+10.times do |number|
+  if number == 0
+    first_name = "Brandon"
+    user = User.create!(
+      {
+        email: "brandon@test.com",
+        first_name: first_name,
+        last_name: Faker::Name.last_name,
+        user_name: "brandon",
+        bio: Faker::Hipster.paragraphs,
+        password: "123456"
+      }
+    )
+  else
+    first_name = Faker::Name.first_name
+    user = User.create!(
+      {
+        email: Faker::Internet.email(name: first_name),
+        first_name: first_name,
+        last_name: Faker::Name.last_name,
+        user_name: Faker::Internet.user,
+        bio: Faker::Hipster.paragraphs,
+        password: "123456"
+      }
+    )
+  end
   puts "Created #{user.first_name}"
   rand(0..3).times do
     event = Event.create!(
@@ -47,12 +61,11 @@ end
     {
       user_id: User.ids.sample,
       event_id: Event.ids.sample,
-      accepted: rand(2) == 1
+      status: %w[pending confirmed declined].sample
     }
   )
   user = User.find(booking.user_id)
   event = Event.find(booking.event_id)
-  puts "Created a #{booking.accepted ? "approved" : "pending"} booking for #{user.first_name} and #{event.category}"
 end
 
 puts "Created #{User.count} users and #{Event.count} events and #{Booking.count} bookings"
