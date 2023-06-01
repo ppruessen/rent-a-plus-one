@@ -6,7 +6,11 @@ class EventsController < ApplicationController
   end
 
   def index
-    @events = Event.all
+    if params[:query].present?
+      @events = Event.where(category: params[:query])
+    else
+      @events = Event.all
+    end
   end
 
   def new

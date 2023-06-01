@@ -1,48 +1,33 @@
-
 <div class="container">
-  <div class ="row">
-    <div id="category-bar" class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4));">
-      <div class="container-fluid w-100">
-        <div id="category-carousel" class="carousel slide d-lg-flex" data-bs-ride="carousel">
-          <div class="carousel-inner">
-            <% categories = @events.pluck(:category).uniq %>
-            <% categories.each_slice(4).with_index do |categories_slice, index| %>
-              <div class="carousel-item <%= index.zero? ? 'active' : '' %>">
-                <div class="d-flex justify-content-center">
-                  <div class="d-flex flex-wrap justify-content-center align-items-center">
-                    <% categories_slice.each do |category| %>
-                      <a class="nav-link category-image" href="#">
-                        <button class="btn btn-transparent">
-                          <div class="d-flex flex-column align-items-center">
-                            <img src="<%= image_path("#{category}.jpg") %>" alt="<%= category %>" class="img-fluid rounded-circle" style="width: 120px; height: 120px; object-fit: cover;">
-                            <span class="category-name text-white mt-2"><%= category %></span>
-                          </div>
-                        </button>
-                      </a>
-                    <% end %>
-                  </div>
-                </div>
-              </div>
-            <% end %>
+  <div class="container">
+    <div class="carousel">
+      <% categories = Event.pluck(:category).uniq %>
+      <% events = @events.to_json %>
+      <% categories.each do |category| %>
+      <%= link_to events_path(query: category) do%>
+        <% category_with_hyphen = category.gsub(" ", "-") %>
+        <div id="<%= category_with_hyphen %>" class="item" onclick="filterEvents('<%= category %>','<%= events %>')">
+          <div>
+            <i class="fa fa-glass"></i>
           </div>
-
-          <button class="carousel-control-prev" type="button" data-bs-target="#category-carousel" data-bs-slide="prev">
-            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-            <span class="visually-hidden">Previous</span>
-          </button>
-
-          <button class="carousel-control-next" type="button" data-bs-target="#category-carousel" data-bs-slide="next">
-            <span class="carousel-control-next-icon" aria-hidden="true"></span>
-            <span class="visually-hidden">Next</span>
-          </button>
-
+          <h1><%= category %></h1>
         </div>
-      </div>
+      <% end %>
+      <% end %>
     </div>
   </div>
-  <div class="event-cards">
-    <% @events.each do |event| %>
+
+
+
+
+  <div class="cards-container" style="margin-top: 5%;">
+    <div class="event-cards" id="each-item">
+      <% @events.each do |event| %>
+        <%# <% if event.category == category %>
         <%= render "shared/event_card", event: event %>
-    <% end %>
+        <%# <% end %>
+      <% end %>
+    </div>
   </div>
 </div>
+
