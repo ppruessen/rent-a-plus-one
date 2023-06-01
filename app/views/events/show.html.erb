@@ -9,4 +9,16 @@
     <%= render "shared/event_details" %>
     <%= render "shared/event_host_bio" %>
   </div>
+  <% unless @bookings_as_owner.empty? %>
+    <% @bookings_as_owner.each do |booking| %>
+        <%= simple_form_for booking, html: { class: "booking-button-inline form-inline" } do |f|%>
+        <%= f.input :status, input_html: { value: "confirmed" }, as: :hidden %>
+        <%= f.button :submit, "Confirm", disabled: booking.status != 'pending', class: "btn btn-sm btn-success" %>
+      <% end %>
+      <%= simple_form_for booking, html: { class: "booking-button-inline" } do |f|%>
+        <%= f.input :status, input_html: { value: "declined" }, as: :hidden %>
+        <%= f.button :submit, "Decline", disabled: booking.status != 'pending', class: "btn btn-sm btn-warning" %>
+      <% end %>
+    <% end %>
+  <% end %>
 </div>
