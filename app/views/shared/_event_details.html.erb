@@ -4,8 +4,22 @@
     <p><%= @event.location %></p>
     <p><%= @event.date.strftime('%m/%d/%Y') %></p>
   </div>
-    <div class="description">
-      <p><%= @event.description %></p>
-      <p id="price"><strong>€<%= @event.compensation %></strong></p>
-      </div>
+  <div class="description flex-grow-1">
+    <div class="" style="text-align: right; margin: 0px 25px 19px 0px;">
+      <% if @event.user_id != current_user.id  %>
+        <% if Booking.where(user_id: current_user.id, event_id: @event.id).empty? %>
+          <%= link_to "Apply for this event", event_bookings_path(@event), data: { turbo_method: "post" }, class: "btn btn-warning" %>
+        <% else %>
+          <%= link_to "You applied for this event", event_bookings_path(@event), data: { turbo_method: "post" }, class: "btn btn-warning disabled" %>
+        <% end %>
+      <% else %>
+        <%= link_to "You created this event", event_bookings_path(@event), data: { turbo_method: "post" }, class: "btn btn-warning disabled" %>
+      <% end %>
+
+    </div>
+    <p><%= @event.description %></p>
+
+    <p id="price", style="text-align: right; margin: 0px 25px 15px 0px;"><strong>Reward: <%= @event.compensation %> €</strong></p>
+
   </div>
+</div>

@@ -2,20 +2,21 @@ class BookingsController < ApplicationController
 
   def create
     @event = Event.find(params[:event_id])
-    @booking = Booking.new(booking_params)
+    @booking = Booking.new
     @booking.user = current_user
     @booking.event = @event
     @booking.status = 'pending'
     @booking.save
+    redirect_to dashboard_path
   end
 
   def update
     @booking = Booking.find(params[:id])
     if @booking.update(booking_params)
       if params[:commit] == 'Confirm' || params[:commit] == 'Decline'
-        redirect_to dashboard_path, notice: "Worked"
+        redirect_to dashboard_path, notice: "New status assigned"
       elsif
-        redirect_to event_path(@booking.event), notice: "Did not worked"
+        redirect_to event_path(@booking.event), notice: "Did not work"
       end
     end
   end

@@ -1,8 +1,18 @@
-<%= render "shared/title_bar", event: @event%>
+<%# render "shared/title_bar", event: @event%>
+
+ <div class="d-flex justify-content-center mt-3 mx-5">
+    <h2><%= @event.title %></h2>
+  </div>
+
 <div class="container w-75">
 
   <div class="main-image d-flex justify-content-center align-items-center col-12">
-    <img style="width: 100%" src="https://placehold.co/900x600" alt="main image">
+      <% if @event.photo.attached? %>
+        <%= cl_image_tag @event.photo.key, height: 600, width: 900, crop: :fill %>
+      <% else %>
+        <img style="width: 100%" src="https://placehold.co/900x600" alt="main image">
+      <% end %>
+
   </div>
 
   <div class="event-info d-flex">

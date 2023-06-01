@@ -30,7 +30,7 @@ class EventsController < ApplicationController
   def event_params
     params.require(:event).permit(:title, :category, :location, :description, :compensation, :date, :photo)
   end
-  
+
   def finalized?(booking)
     booking.status != 'pending'
   end
