@@ -36,7 +36,8 @@
             </div>
             <div class="mb-3 form-inputs">
               <%= f.input :date,
-                          required: true %>
+                          as: :string,
+                          input_html: { data: { controller: "datepicker" } } %>
             </div>
             <div class="mb-3 form-inputs">
               <%= f.input :photo, as: :file %>
