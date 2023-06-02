@@ -13,9 +13,10 @@
   <div class="event-info d-flex">
     <%= render "shared/event_details" %>
     <%= render "shared/event_host_bio" %>
+    <h6>  Check out your applications!</h6>
   </div>
 
-  <div class="application-card-container">
+  <div class="event-info d-flex application-card-container">
     <% unless @bookings_as_owner.empty? %>
       <%= render "shared/application_card" %>
     <% end %>

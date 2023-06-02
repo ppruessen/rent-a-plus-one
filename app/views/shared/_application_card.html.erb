@@ -1,15 +1,15 @@
 <% @bookings_as_owner.each do |booking| %>
-  <div class="application-card col-9">
-    <div class="application-card-info">
+  <div class="application-card application-card-info align-items-center col-9 row">
+    <div class="col">
+      <% if booking.user.photo.attached? %>
+        <%= cl_image_tag current_user.photo.key, class: "avatar" %>
+      <% else %>
+        <%= image_tag "placeholder.png", class: "avatar" %>
+      <% end %>
       <%= booking.user.first_name %> <%= booking.user.last_name %>
-
-        <% if booking.user.photo.attached? %>
-          <%= cl_image_tag current_user.photo.key, class: "avatar" %>
-        <% else %>
-          <%= image_tag "placeholder.png", class: "avatar" %>
-        <% end %>
-
-      <%= simple_form_for booking, html: { class: "booking-button-inline form-inline" } do |f| %>
+    </div>
+    <div class="confirm-decline d-inline-flex justify-content-end align-items-center col">
+      <%= simple_form_for booking, html: { class: "booking-button-inline form-inline gap" } do |f| %>
         <%= f.input :status, input_html: { value: "confirmed" }, as: :hidden %>
         <%= f.button :submit, "Confirm", disabled: booking.status != 'pending', class: "btn btn-sm btn-success" %>
       <% end %>
