@@ -7,6 +7,7 @@
 #   Character.create(name: "Luke", movie: movies.first)
 
 require 'faker'
+require 'open-uri'
 
 categories = ['Wedding', 'Funeral', 'Graduation', 'Birthday Party', 'Family Gathering', 'Work Event', 'Class Reunion', 'Space Trip']
 
@@ -14,7 +15,8 @@ puts "Seeding the database ....................................."
 
 #################### 10 hardcoded users ####################
 
-user1 = User.create!(
+user1photo = URI.open("https://source.unsplash.com/DItYlc26zVI/600x300")
+user1 = User.new(
   {
     email: "brandon@test.com",
     first_name: "Brandon",
@@ -24,8 +26,11 @@ user1 = User.create!(
     password: "123456"
   }
 )
+user1.photo.attach(io: user1photo, filename: "user1.png", content_type: "image/png")
+user1.save!
 
-user2 = User.create!(
+user2photo = URI.open("https://source.unsplash.com/YRJsMa72UDw/600x300")
+user2 = User.new(
   {
     email: "cindy@test.com",
     first_name: "Cindy",
@@ -35,8 +40,11 @@ user2 = User.create!(
     password: "123456"
   }
 )
+user2.photo.attach(io: user2photo, filename: "user2.png", content_type: "image/png")
+user2.save!
 
-user3 = User.create!(
+user3photo = URI.open("https://source.unsplash.com/YUu9UAcOKZ4/600x300")
+user3 = User.new(
   {
     email: "david@test.com",
     first_name: "David",
@@ -46,8 +54,11 @@ user3 = User.create!(
     password: "123456"
   }
 )
+user3.photo.attach(io: user3photo, filename: "user3.png", content_type: "image/png")
+user3.save!
 
-user4 = User.create!(
+user4photo = URI.open("https://source.unsplash.com/zNWlX5Sw9a4/600x300")
+user4 = User.new(
   {
     email: "jessica@test.com",
     first_name: "Jessica",
@@ -57,8 +68,11 @@ user4 = User.create!(
     password: "123456"
   }
 )
+user4.photo.attach(io: user4photo, filename: "user4.png", content_type: "image/png")
+user4.save!
 
-user5 = User.create!(
+user5photo = URI.open("https://source.unsplash.com/hh3ViD0r0Rc/600x300")
+user5 = User.new(
   {
     email: "michael@test.com",
     first_name: "Michael",
@@ -68,8 +82,11 @@ user5 = User.create!(
     password: "123456"
   }
 )
+user5.photo.attach(io: user5photo, filename: "user5.png", content_type: "image/png")
+user5.save!
 
-user6 = User.create!(
+user6photo = URI.open("https://source.unsplash.com/n5aE6hOY6do/600x300")
+user6 = User.new(
   {
     email: "emily@test.com",
     first_name: "Emily",
@@ -79,8 +96,11 @@ user6 = User.create!(
     password: "123456"
   }
 )
+user6.photo.attach(io: user6photo, filename: "user6.png", content_type: "image/png")
+user6.save!
 
-user7 = User.create!(
+user7photo = URI.open("https://source.unsplash.com/7YVZYZeITc8/600x300")
+user7 = User.new(
   {
     email: "luke@test.com",
     first_name: "Luke",
@@ -90,8 +110,11 @@ user7 = User.create!(
     password: "123456"
   }
 )
+user7.photo.attach(io: user7photo, filename: "user7.png", content_type: "image/png")
+user7.save!
 
-user8 = User.create!(
+user8photo = URI.open("https://source.unsplash.com/W7b3eDUb_2I/600x300")
+user8 = User.new(
   {
     email: "sophie@test.com",
     first_name: "Sophie",
@@ -101,8 +124,11 @@ user8 = User.create!(
     password: "123456"
   }
 )
+user8.photo.attach(io: user8photo, filename: "user8.png", content_type: "image/png")
+user8.save!
 
-user9 = User.create!(
+user9photo = URI.open("https://source.unsplash.com/sibVwORYqs0/600x300")
+user9 = User.new(
   {
     email: "james@test.com",
     first_name: "James",
@@ -112,8 +138,11 @@ user9 = User.create!(
     password: "123456"
   }
 )
+user9.photo.attach(io: user9photo, filename: "user9.png", content_type: "image/png")
+user9.save!
 
-user10 = User.create!(
+user10photo = URI.open("https://source.unsplash.com/rDEOVtE7vOs/600x300")
+user10 = User.new(
   {
     email: "lucy@test.com",
     first_name: "Lucy",
@@ -123,10 +152,13 @@ user10 = User.create!(
     password: "123456"
   }
 )
+user10.photo.attach(io: user10photo, filename: "user10.png", content_type: "image/png")
+user10.save!
 
 #################### 10 hardcoded events ####################
 
-event1 = Event.create!(
+event1photo = URI.open("https://source.unsplash.com/464ps_nOflw/1200x600")
+event1 = Event.new(
   {
     title: 'My sisters big fat greek wedding',
     category: 'Wedding',
@@ -143,8 +175,11 @@ event1 = Event.create!(
     user_id: user1.id
   }
 )
+event1.photo.attach(io: event1photo, filename: "event1.png", content_type: "image/png")
+event1.save!
 
-event2 = Event.create!(
+event2photo = URI.open("https://source.unsplash.com/oMpAz-DN-9I/1200x600")
+event2 = Event.new(
   {
     title: 'Zero Gravity Extravaganza',
     category: 'Space Trip',
@@ -159,8 +194,11 @@ event2 = Event.create!(
     user_id: user1.id
   }
 )
+event2.photo.attach(io: event2photo, filename: "event2.png", content_type: "image/png")
+event2.save!
 
-event3 = Event.create!(
+event3photo = URI.open("https://source.unsplash.com/eq254Cqvmk8/1200x600")
+event3 = Event.new(
   {
     title: 'A Lively Celebration of Uncle Bob',
     category: 'Funeral',
@@ -175,8 +213,11 @@ event3 = Event.create!(
     user_id: user3.id
   }
 )
+event3.photo.attach(io: event3photo, filename: "event3.png", content_type: "image/png")
+event3.save!
 
-event4 = Event.create!(
+event4photo = URI.open("https://source.unsplash.com/_JjYYsQPneE/1200x600")
+event4 = Event.new(
   {
     title: 'The Great Family Outdoor Bonanza',
     category: 'Family Gathering',
@@ -191,8 +232,11 @@ event4 = Event.create!(
     user_id: user3.id
   }
 )
+event4.photo.attach(io: event4photo, filename: "event4.png", content_type: "image/png")
+event4.save!
 
-event5 = Event.create!(
+event5photo = URI.open("https://source.unsplash.com/YZsvNs2GCPU/1200x60")
+event5 = Event.new(
   {
     title: 'Class of 2023: A Day of Pomp and Circumstance',
     category: 'Graduation',
@@ -205,8 +249,11 @@ event5 = Event.create!(
     user_id: user5.id
   }
 )
+event5.photo.attach(io: event5photo, filename: "event5.png", content_type: "image/png")
+event5.save!
 
-event6 = Event.create!(
+event6photo = URI.open("https://source.unsplash.com/1VqHRwxcCCw/1200x600")
+event6 = Event.new(
   {
     title: 'Tropical Graduation Luau Party',
     category: 'Graduation',
@@ -221,8 +268,11 @@ event6 = Event.create!(
     user_id: user5.id
   }
 )
+event6.photo.attach(io: event6photo, filename: "event6.png", content_type: "image/png")
+event6.save!
 
-event7 = Event.create!(
+event7photo = URI.open("https://source.unsplash.com/YYXqBwvdoeI/1200x600")
+event7 = Event.new(
   {
     title: 'King for a Day: Arthur’s Royal Bash',
     category: 'Birthday Party',
@@ -237,8 +287,11 @@ event7 = Event.create!(
     user_id: user7.id
   }
 )
+event7.photo.attach(io: event7photo, filename: "event7.png", content_type: "image/png")
+event7.save!
 
-event8 = Event.create!(
+event8photo = URI.open("https://source.unsplash.com/ULHxWq8reao/1200x600")
+event8 = Event.new(
   {
     title: 'Lisa’s Totally Rad 90s Birthday Bash',
     category: 'Birthday Party',
@@ -253,8 +306,11 @@ event8 = Event.create!(
     user_id: user7.id
   }
 )
+event8.photo.attach(io: event8photo, filename: "event8.png", content_type: "image/png")
+event8.save!
 
-event9 = Event.create!(
+event9photo = URI.open("https://source.unsplash.com/pf1nvQmXjB8/1200x600")
+event9 = Event.new(
   {
     title: '2023 Annual Corporate Gala Dinner',
     category: 'Work Event',
@@ -269,8 +325,11 @@ event9 = Event.create!(
     user_id: user9.id
   }
 )
+event9.photo.attach(io: event9photo, filename: "event9.png", content_type: "image/png")
+event9.save!
 
-event10 = Event.create!(
+event10photo = URI.open("https://source.unsplash.com/fNI0K_Mfi7c/1200x600")
+event10 = Event.new(
   {
     title: 'Team-Building Adventure in the Great Outdoors',
     category: 'Work Event',
@@ -285,6 +344,8 @@ event10 = Event.create!(
     user_id: user9.id
   }
 )
+event10.photo.attach(io: event10photo, filename: "event10.png", content_type: "image/png")
+event10.save!
 
 #################### 25 hardcoded Bookings ####################
 
@@ -346,7 +407,7 @@ booking = Booking.create!(
   {
     user_id: user1.id,
     event_id: event3.id,
-    status: 'pending'
+    status: 'confirmed'
   }
 )
 
@@ -507,33 +568,3 @@ booking = Booking.create!(
     status: 'pending'
   }
 )
-
-#################### 10 randon events ####################
-
-descriptions = {
-  'Wedding' => "I'm thrilled to invite you to join us as we celebrate the blissful union of two beautiful souls. Come and share in our joy as we gather in a charming setting filled with love, laughter, and heartfelt vows.",
-  'Funeral' => "I'm seeking your presence at a respectful gathering to bid a final farewell to a dear departed soul. Your presence will provide comfort and support to those grieving during this somber event.",
-  'Graduation' => "You're invited to cheer and celebrate the academic achievements of a group of hardworking students. We're gathering for a joyful ceremony filled with pride, applause, and hopes for a bright future.",
-  'Birthday Party' => "I'm excited to extend an invitation for a fantastic birthday bash. There'll be music, dancing, delicious food, and a big surprise! Your presence will surely make this day more special.",
-  'Family Gathering' => "I'm inviting you to be part of our warm family gathering. We'll be sharing stories, laughter, and great food as we enjoy each other's company. Come and make some wonderful memories with us.",
-  'Work Event' => "I'd be thrilled if you could join us for an important work event. It's a great chance to network, learn, and discuss exciting new ventures. Your expertise and insight would be greatly appreciated.",
-  'Class Reunion' => "I'm organizing a nostalgic class reunion. Come and catch up with old friends, relive memories, and see how everyone has changed over the years. Your attendance would truly complete this walk down memory lane.",
-  'Space Trip' => "Here's an out-of-this-world invitation for a spectacular space trip. Experience the thrill of zero gravity, marvel at the breathtaking beauty of the cosmos, and have the adventure of a lifetime. I'm looking forward to sharing this stellar journey with you."
-}
-
-10.times do |i|
-  category = categories.sample
-  Event.create!(
-    {
-      title: Faker::Lorem.sentence(word_count: 5),
-      category: category,
-      location: Faker::Address.city,
-      date: Faker::Date.between(from: '2023-05-23', to: '2023-06-24'),
-      description: descriptions[category],
-      compensation: Faker::Number.within(range: 10..1000),
-      user_id: User.all.sample.id
-    }
-  )
-end
-
-puts "Seeding done .............................."
