@@ -2,7 +2,7 @@
   <div class="application-card application-card-info align-items-center col-9 row">
     <div class="col">
       <% if booking.user.photo.attached? %>
-        <%= cl_image_tag current_user.photo.key, class: "avatar" %>
+        <%= cl_image_tag booking.user.photo.key, width: 60, height: 60, crop: :thumb, gravity: :face %>
       <% else %>
         <%= image_tag "placeholder.png", class: "avatar" %>
       <% end %>
