@@ -14,6 +14,13 @@ class BookingsController < ApplicationController
     @booking = Booking.find(params[:id])
     if @booking.update(booking_params)
       if params[:commit] == 'Confirm' || params[:commit] == 'Decline'
+        if @booking.status == 'confirmed'
+          bookings = Booking.where(event_id: @booking.event_id, status: 'pending')
+          bookings.each do |booking|
+            booking.status = 'declined'
+            booking.save
+          end
+        end
         redirect_to dashboard_path, notice: "New status assigned"
       elsif
         redirect_to event_path(@booking.event), notice: "Did not work"
