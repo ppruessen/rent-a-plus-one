@@ -37,9 +37,7 @@
 
 
 
-
-
-//Dashboard event-status cards
+//Dashboard event-status-badge cards
 
 .event-card.owner{
   background-color: #FFFFFF;
@@ -61,7 +59,6 @@
   margin: 0px 0px 15px 0px;
 }
 
-
 .relative-status {
   position: relative;
 }
@@ -82,16 +79,6 @@
   background-color: transparent;
   border-radius: 0;
 }
-.badge-corner span {
-  position: absolute;
-  top: -52px;
-  left: -28px;
-  font-size: 16px;
-  color: #fff;
-}
-.badge-corner-base {
-  border-top-color: #3498db;
-}
 .badge-corner-attending {
   border-top-color: #9cd70e;
 }
@@ -101,11 +88,6 @@
 .badge-corner-owner {
   border-top-color: #ff8a3c;
 }
-
 .badge-corner-review {
   border-top-color: #bd3c3c;
-}
-
-.event-card.pending{
-  background-color: orange;
 }
