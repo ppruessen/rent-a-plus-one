@@ -568,18 +568,3 @@ booking = Booking.create!(
     status: 'pending'
   }
 )
-
-#################### 25 random events ####################
-
-descriptions = {
-  'Wedding' => "I'm thrilled to invite you to join us as we celebrate the blissful union of two beautiful souls. Come and share in our joy as we gather in a charming setting filled with love, laughter, and heartfelt vows.",
-  'Funeral' => "I'm seeking your presence at a respectful gathering to bid a final farewell to a dear departed soul. Your presence will provide comfort and support to those grieving during this somber event.",
-  'Graduation' => "You're invited to cheer and celebrate the academic achievements of a group of hardworking students. We're gathering for a joyful ceremony filled with pride, applause, and hopes for a bright future.",
-  'Birthday Party' => "I'm excited to extend an invitation for a fantastic birthday bash. There'll be music, dancing, delicious food, and a big surprise! Your presence will surely make this day more special.",
-  'Family Gathering' => "I'm inviting you to be part of our warm family gathering. We'll be sharing stories, laughter, and great food as we enjoy each other's company. Come and make some wonderful memories with us.",
-  'Work Event' => "I'd be thrilled if you could join us for an important work event. It's a great chance to network, learn, and discuss exciting new ventures. Your expertise and insight would be greatly appreciated.",
-  'Class Reunion' => "I'm organizing a nostalgic class reunion. Come and catch up with old friends, relive memories, and see how everyone has changed over the years. Your attendance would truly complete this walk down memory lane.",
-  'Space Trip' => "Here's an out-of-this-world invitation for a spectacular space trip. Experience the thrill of zero gravity, marvel at the breathtaking beauty of the cosmos, and have the adventure of a lifetime. I'm looking forward to sharing this stellar journey with you."
-}
-
-puts "Seeding done!"
