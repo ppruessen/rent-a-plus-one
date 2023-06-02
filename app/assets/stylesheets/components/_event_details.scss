@@ -13,22 +13,24 @@
 
 .left-side-box {
   flex-direction: column;
-  padding-right: 15px;
-  padding-left: 15px;
+  padding: 0px 20px;
   margin-top: 15px;
   margin-bottom: 15px;
   border-right: 1px solid lightslategray
 }
 
-#price {
-  position: absolute;
-  bottom: 0;
-  right: 0;
-  padding-right: 15px;
+.right-side-box {
+  padding: 25px;
+  margin: 10px 0px 10px 0px;
 }
 
-.description {
-  padding-left: 10px;
+.event-btn {
+  text-align: right;
+  margin-bottom: 20px;
+}
+
+.event-price {
+  text-align: right;
 }
 
 // #title {
