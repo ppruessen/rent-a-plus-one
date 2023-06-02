@@ -1,5 +1,8 @@
-<div class="container">
-  <h2>Hello <%= current_user.first_name.capitalize %>,<br>welcome to your dashboard</h2>
+<div class="container d-flex align-items-center">
+  <% if current_user.photo.attached? %>
+    <%= cl_image_tag current_user.photo.key, height: 150, width: 150, :crop=>"thumb", :gravity=>"faces", class: "dashboard-profile-picture" %>
+  <% end %>
+  <div id="welcome-msg"><h2>Hello <%= current_user.first_name.capitalize %>,<br>welcome to your dashboard</h2></div>
 </div>
 <hr>
 <% if @all_events_by_user %>
