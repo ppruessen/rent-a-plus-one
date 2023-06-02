@@ -11,3 +11,25 @@
 hr {
   margin: 60px 0px 40px 0px;
 }
+
+.my-event-card {
+  background-color: rgba(157, 157, 157, 0.12);
+  margin: 10px;
+  width: 100px;
+  text-align: center;
+  border-radius:0; box-shadow:0 2px 5px 0 rgba(0,0,0,.16),0 2px 10px 0 rgba(0,0,0,.12);
+  font-family: "Patua One", "Helvetica", "sans-serif";
+  font-weight: 500;
+  line-height: 1.2;
+}
+
+.my-events-title {
+  font-size: 0.8em;
+  padding: 10px;
+  color: black;
+}
+
+a {
+
+  text-decoration: none;
+}
