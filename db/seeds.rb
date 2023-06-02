@@ -508,7 +508,7 @@ booking = Booking.create!(
   }
 )
 
-#################### 25 randon events ####################
+#################### 10 randon events ####################
 
 descriptions = {
   'Wedding' => "I'm thrilled to invite you to join us as we celebrate the blissful union of two beautiful souls. Come and share in our joy as we gather in a charming setting filled with love, laughter, and heartfelt vows.",

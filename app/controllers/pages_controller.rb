@@ -7,12 +7,8 @@ class PagesController < ApplicationController
   def dashboard
     # Pending events
     @all_events_by_user = current_user.events
-    # sql_query = <<~SQL
-    #   bookings.user_id = :user_id AND bookings.accepted = false
-    # SQL
-    # current_user.events = user_events.joins(:bookings).where(sql_query)
-    #@my_pending_events = user_events.
-    @my_pending_events = Booking.where(event_id: @all_events_by_user.pluck(:id), status: 'pending')
+
+    @my_pending_events = Booking.where(event_id: @all_events_by_user.pluck(:id), status: 'pending').select(:event_id).distinct
 
     # Approved events
     @my_approved_events = Booking.where(event_id: @all_events_by_user.pluck(:id), status: 'confirmed')
