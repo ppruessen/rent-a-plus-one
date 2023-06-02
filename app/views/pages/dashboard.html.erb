@@ -1,7 +1,6 @@
 <div class="container">
   <h2>Hello <%= current_user.first_name.capitalize %>,<br>welcome to your dashboard</h2>
 </div>
-
 <hr>
 <% if @all_events_by_user %>
   <div class="container my-events-container">
@@ -47,7 +46,7 @@
       <div class="event-cards">
         <% if @approved_events %>
           <% @approved_events.each do |event| %>
-              <%= render "shared/event_card", event: event %>
+              <%= render "shared/event_card_long", event: event %>
           <% end %>
         <% end %>
       </div>
@@ -73,10 +72,10 @@
 
     <div class="col">
       <h4>Confirmed +1</h4>
-      <div class="event-cards">
+      <div class="event-cards-long">
         <% if @my_approved_events %>
           <% @my_approved_events.each do |booking| %>
-              <%= render "shared/event_card", event: booking.event %>
+              <%= render "shared/event_card_long", event: booking.event %>
           <% end %>
         <% end %>
       </div>
