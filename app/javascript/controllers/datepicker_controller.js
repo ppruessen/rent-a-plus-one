@@ -7,8 +7,7 @@ export default class extends Controller {
     enableTime: true,
     dateFormat: 'Y-m-d H:i',
     altInput: true,
-    altFormat: "F j, Y",
-    dateFormat: "Y-m-d",
+    altFormat: "F j, Y H:i",
     minDate: "today"
     }
   )};
