@@ -1,8 +1,11 @@
 <div class="relative-status">
 <div class="event-card confirmed">
 
-  <img src="https://placehold.co/600x400" alt="Event Image 1" class="event-image">
-
+<% if event.photo.attached? %>
+  <%= cl_image_tag event.photo.key, height: 400, width: 600, crop: :fill, class: "event-image" %>
+<% else %>
+    <img src="https://placehold.co/600x400" alt="Event Image 1" class="event-image">
+<% end %>
   <div class="event-details">
     <h5 class="event-name"><%= event.title %></h5>
     <p class="event-location"><strong>Location:</strong> <%= event.location %></p>
