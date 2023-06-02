@@ -14,9 +14,7 @@
       <div class="event-cards">
         <% if @approved_events %>
           <% @applied_events.each do |event| %>
-            <div class="border border-warning">
-              <%= render "shared/event_card", event: event %>
-            </div>
+              <%= render "shared/dashboard_owner_card", event: event %>
           <% end %>
         <% end %>
       </div>
@@ -45,13 +43,11 @@
   <div class="row">
     <div class="col">
       <%# <h4>Waiting For Approval</h4> %>
-      <h4>To do: Review Applications</h4>
+      <h4>Applications to Review</h4>
       <div class="event-cards">
         <% if @my_pending_events %>
           <% @my_pending_events.each do |booking| %>
-            <div class="border border-danger">
-              <%= render "shared/event_card", event: booking.event %>
-            </div>
+              <%= render "shared/dashboard_review_card", event: booking.event %>
           <% end %>
         <% end %>
       </div>
@@ -62,7 +58,7 @@
       <div class="event-cards">
         <% if @my_approved_events %>
           <% @my_approved_events.each do |booking| %>
-              <%= render "shared/event_card", event: booking.event %>
+              <%= render "shared/dashboard_confirmed_card", event: booking.event %>
           <% end %>
         <% end %>
       </div>

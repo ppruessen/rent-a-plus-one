@@ -41,10 +41,26 @@
 
 //Dashboard event-status cards
 
+.event-card.owner{
+  background-color: #FFFFFF;
+  margin: 0px 0px 15px 0px;
+}
+
+.event-card.attending{
+  background-color: #FFFFFF;
+  margin: 0px 0px 15px 0px;
+}
+
 .event-card.approved {
   background-color: #FFFFFF;
   margin: 0px 0px 15px 0px;
 }
+
+.event-card.review {
+  background-color: #FFFFFF;
+  margin: 0px 0px 15px 0px;
+}
+
 
 .relative-status {
   position: relative;
@@ -82,14 +98,12 @@
 .badge-corner-confirmed {
   border-top-color: #9cd70e;
 }
-.badge-corner-light span {
-  color: #2c3e50;
-}
-.badge-corner-dark {
-  border-top-color: #131313;
-}
-.badge-corner-orange {
+.badge-corner-owner {
   border-top-color: #ff8a3c;
+}
+
+.badge-corner-review {
+  border-top-color: #bd3c3c;
 }
 
 .event-card.pending{
