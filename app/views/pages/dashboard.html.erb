@@ -35,11 +35,12 @@
       <div class="event-cards">
         <% if @approved_events %>
           <% @applied_events.each do |event| %>
-              <%= render "shared/event_card", event: event %>
+              <%= render "shared/dashboard_owner_card", event: event %>
           <% end %>
         <% end %>
       </div>
     </div>
+
 
     <div class="col">
       <h4>Events Attending</h4>
@@ -60,11 +61,12 @@
   <h2>My created Events</h2>
   <div class="row">
     <div class="col">
-      <h4>Waiting For Approval</h4>
+      <%# <h4>Waiting For Approval</h4> %>
+      <h4>Applications to Review</h4>
       <div class="event-cards">
         <% if @my_pending_events %>
           <% @my_pending_events.each do |booking| %>
-              <%= render "shared/event_card", event: booking.event %>
+              <%= render "shared/dashboard_review_card", event: booking.event %>
           <% end %>
         <% end %>
       </div>
@@ -75,6 +77,7 @@
       <div class="event-cards-long">
         <% if @my_approved_events %>
           <% @my_approved_events.each do |booking| %>
+
               <%= render "shared/event_card_long", event: booking.event %>
           <% end %>
         <% end %>

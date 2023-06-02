@@ -1,0 +1,17 @@
+<div class="relative-status">
+<div class="event-card review">
+
+  <img src="https://placehold.co/600x400" alt="Event Image 1" class="event-image">
+
+  <div class="event-details">
+    <h5 class="event-name"><%= event.title %></h5>
+    <p class="event-location"><strong>Location:</strong> <%= event.location %></p>
+    <p class="event-date"><strong>Date:</strong> <%= event.date.strftime('%m/%d/%Y') %></p>
+    <p class="event-category"><strong>Category:</strong> <%= event.category %></p>
+    <p class="text-center mt-3"><%= link_to "View Event", event_path(event), class: "btn btn-primary" %></p>
+  </div>
+  <div class="badge-corner badge-corner-review">
+      <i class="fa-solid fa-eyes" style="position:absolute;bottom:10px;"></i>
+  </div>
+</div>
+</div>
