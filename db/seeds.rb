@@ -9,6 +9,14 @@
 require 'faker'
 require 'open-uri'
 
+
+puts "Cleaning the database............................................"
+Booking.destroy_all
+Event.destroy_all
+User.destroy_all
+puts "Done ............................................................"
+
+
 categories = ['Wedding', 'Funeral', 'Graduation', 'Birthday Party', 'Family Gathering', 'Work Event', 'Class Reunion', 'Space Trip']
 
 puts "Seeding the database ....................................."
